@@ -1,19 +1,14 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "buildCommand": "npm run build",
-  "functions": {
-    "app.py": {
-      "runtime": "python3.12"
-    }
-  },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/ai-chat",
-      "dest": "/app.py"
+      "source": "/api/ai-chat",
+      "destination": "/app.py"
     },
     {
-      "src": "/(.*)",
-      "dest": "/app.py"
+      "source": "/(.*)",
+      "destination": "/app.py"
     }
   ]
 }
